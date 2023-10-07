@@ -10,7 +10,7 @@ export default function Mapbox() {
         ...viewport,
         latitude: pos.coords.latitude,
         longitude: pos.coords.longitude,
-        zoom: 13,
+        zoom: 12,
       });
     });
   }, [viewport]);
@@ -22,9 +22,6 @@ export default function Mapbox() {
             mapboxAccessToken={TOKEN}
             initialViewState={viewport}
             mapStyle="mapbox://styles/mapbox/streets-v12"
-            width = "100%"
-            height = "100%"
-            transitionDuration ="200"
           >
             <Marker
               longitude={viewport.longitude}
