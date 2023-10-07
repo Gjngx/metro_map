@@ -5,13 +5,17 @@
     height: calc(100vh - 55px);
     overflow: hidden;
 }
-.BodyLeft{
+.bodyLeft{
     min-width: 350px;
     width: 450px;
     height: calc(100vh - 55px);
     background-color: #fff;
     position: relative;
     transition: width .5s ease-in-out;
+}
+.bodyRight{
+    width: 100%;
+    max-width: 990px;
 }
 .map-container{
     width: 100%;
@@ -37,35 +41,12 @@
     flex-shrink: 0;
     justify-content: space-evenly;
 }
-.buton-control-map{
-    height: 48px;
-    padding: 0 24px;
-    cursor: pointer;
-    box-sizing: border-box;
-    opacity: .6;
-    min-width: 160px;
-    text-align: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    white-space: nowrap;
-    position: relative;
-}
-.button-map{
-    font-weight: unset;
-    font-family: Roboto,sans-serif;
-    font-weight: 500;
+.css-1gsv261{
     width: 100%;
-    border-bottom: 1px solid #ccc;
 }
-.info-container{
-    height: 100%;
-    padding: 17px 17px 35px;
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root{
+    width: 50%;
 }
-.search-container{
-    display: flex;
-    justify-content: space-evenly;
-}
-.MuiTextField-root{
-    width: 68%;
+.MuiTabPanel-root{
+    padding: 9px;
 }

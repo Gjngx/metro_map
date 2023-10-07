@@ -1,0 +1,8 @@
+.info-container{
+    height: 100%;
+    padding: 17px 17px 35px;
+}
+.search-container{
+    display: flex;
+    justify-content: space-evenly;
+}

@@ -1,37 +1,37 @@
-import { TextField, Button } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search';
 import React from 'react'
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import InfoListTrain from './infoListTrain';
+
 
 export default function BodyLeft() {
+const [value, setValue] = React.useState('1');
+
+const handleChange = (event, newValue) => {
+    setValue(newValue);
+};
   return (
-    <div className='BodyLeft'>
+    <div className='bodyLeft'>
         <div className='map-info'>
+        <TabContext value={value}>
             <div className='map-control'>
-                <div className='tab-control'>
-                    <div className='buton-control-map'>
-                        <div className='button-map'>
-                            <p>Tìm đường</p>
-                        </div>
-                    </div>
-                    <div className='buton-control-map'>
-                    <div className='button-map'>
-                            <p>Thông tin trạm</p>
-                        </div>
-                    </div>
+                <div className='tab-control'>                    
+                        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                            <TabList onChange={handleChange}>
+                            <Tab label="Tìm đường" value="1" />
+                            <Tab label="Thông tin trạm" value="2" />
+                            </TabList>
+                        </Box>
                 </div>
-                <hr/>
             </div>
             <div className='info-container'>
-                <div className='search-container'>
-                    <TextField name = 'search-info' 
-                    id="outlined-basic" 
-                    label="Tìm tuyến tàu điện"  
-                    size="small" ></TextField>
-                    <Button size="medium" 
-                    variant="contained" 
-                    endIcon={<SearchIcon />}>Tìm kiếm</Button>
-                </div>
+                <TabPanel value="1">Tìm đường</TabPanel>
+                <TabPanel value="2"><InfoListTrain/></TabPanel>
             </div>
+            </TabContext>
         </div>
     </div>
   )
