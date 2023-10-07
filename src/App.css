@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.AppLogo{
+  display: flex;
+}
+
+.AppHeader{
+  justify-content: space-between;
+}
+
+.verticalLine {
+  border-left: thick solid #ff0000;
+}

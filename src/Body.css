@@ -1,0 +1,71 @@
+.container{
+    position: relative;
+    display: flex;
+    width: 100vw;
+    height: calc(100vh - 55px);
+    overflow: hidden;
+}
+.BodyLeft{
+    min-width: 350px;
+    width: 450px;
+    height: calc(100vh - 55px);
+    background-color: #fff;
+    position: relative;
+    transition: width .5s ease-in-out;
+}
+.map-container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.map-info{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.map-control{
+    display: flex;
+    flex-direction: column;
+}
+.tab-control{
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    justify-content: space-evenly;
+}
+.buton-control-map{
+    height: 48px;
+    padding: 0 24px;
+    cursor: pointer;
+    box-sizing: border-box;
+    opacity: .6;
+    min-width: 160px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+}
+.button-map{
+    font-weight: unset;
+    font-family: Roboto,sans-serif;
+    font-weight: 500;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+}
+.info-container{
+    height: 100%;
+    padding: 17px 17px 35px;
+}
+.search-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.MuiTextField-root{
+    width: 68%;
+}
