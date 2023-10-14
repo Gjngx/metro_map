@@ -76,26 +76,28 @@ class MapContainer extends Component {
       ));    
 
     return (
+      <div >
         <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={pointsOfInterest[0].coordinates}
-      >
-        {markers}
-        <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-            onClose={this.onClose}
-            >
-            {this.state.selectedPlace && (
-                <div>
-                    <h3>{this.state.selectedPlace.name}</h3>
-                    <p>{this.state.selectedPlace.Address}</p>
-                </div>
-            )}
-        </InfoWindow>
-      </Map>
+          google={this.props.google}
+          zoom={14}
+          style={mapStyles}
+          initialCenter={pointsOfInterest[0].coordinates}
+          >
+          {markers}
+          <InfoWindow
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+              onClose={this.onClose}
+              >
+              {this.state.selectedPlace && (
+                  <div>
+                      <h3>{this.state.selectedPlace.name}</h3>
+                      <p>{this.state.selectedPlace.Address}</p>
+                  </div>
+              )}
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }
