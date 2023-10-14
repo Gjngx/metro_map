@@ -5,6 +5,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import InfoListTrain from './infoListTrain';
+import DirectionMap from './directionMap';
 
 
 export default function BodyLeft() {
@@ -28,7 +29,7 @@ const handleChange = (event, newValue) => {
                 </div>
             </div>
             <div className='info-container'>
-                <TabPanel value="1">Tìm đường</TabPanel>
+                <TabPanel value="1"><DirectionMap/></TabPanel>
                 <TabPanel value="2"><InfoListTrain/></TabPanel>
             </div>
             </TabContext>

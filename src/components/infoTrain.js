@@ -20,6 +20,7 @@ const Item = styled(Paper)(({ theme }) => ({
   const nameTrain = `Tuyến số Metro số 1`;
 
 export default function InfoTrain() {
+  
   return (
     // <div className='info-train'>
     //     <ButtonStyled> info train 1 </ButtonStyled>

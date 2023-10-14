@@ -7,8 +7,8 @@ export default function BodyRight() {
     <div className='bodyRight'>
         <div className='map-container'>
             {/* <Mapbox/> */}
-            <AddressSearch/>
-            {/* <MapContainer/> */}
+            {/* <AddressSearch/> */}
+            <MapContainer/>
         </div>
     </div>
   )
