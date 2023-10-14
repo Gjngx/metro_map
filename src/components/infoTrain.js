@@ -1,5 +1,5 @@
 import React from 'react'
-import './css/infoListTrain.css';
+import './css/components.css';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';

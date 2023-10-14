@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import { TextField, Button, IconButton, ButtonGroup } from '@mui/material'
 import SwapVerticalCircleIcon from '@mui/icons-material/SwapVerticalCircle';
-import './css/directionMap.css'
 
 import styled from 'styled-components';
 
