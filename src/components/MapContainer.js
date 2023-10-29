@@ -1,7 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-
+import trainService from '../services/trainService';
 // const trainIconUrl = "";
+
+const ListTrain =() => {
+  const [train, setTrain] = useState([])
+  useEffect (() => {
+    const getAllTrain = () =>
+    {
+      trainService.getAllTrain().then((response) => {
+          setTrain(response.data)
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+    }
+
+  })
+}
+
+
 
 const pointsOfInterest = [
     {
@@ -21,6 +39,7 @@ const pointsOfInterest = [
 
 
 class MapContainer extends Component {
+  
     constructor(props) {
         super(props);
         this.state = {

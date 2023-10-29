@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-
 // const trainIconUrl = "";
 
 const pointsOfInterest = [
@@ -77,6 +76,7 @@ class AddressMap extends Component {
       width: '100%',
       height: '100%',
     };
+
     // const customIcon = {
     //     url: trainIconUrl,
     //     size: new this.props.google.maps.Size(40, 40),

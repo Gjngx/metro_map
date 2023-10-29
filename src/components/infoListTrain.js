@@ -17,10 +17,12 @@ export default function InfoListTrain() {
                     <TextFieldStyled name = 'search-info' 
                     id="outlined-basic" 
                     label="Tìm tuyến tàu điện"  
-                    size="small" ></TextFieldStyled>
+                    size="small" 
+                    ></TextFieldStyled>
                     <ButtonSearchStyled size="small" 
                     variant="contained" 
-                    endIcon={<SearchIcon />}>Tìm</ButtonSearchStyled>
+                    endIcon={<SearchIcon />}
+                    >Tìm</ButtonSearchStyled>
                 </div>
                 <div className='info-list-train'>
                     <InfoTrain/>
