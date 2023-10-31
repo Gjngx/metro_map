@@ -1,0 +1,10 @@
+.container{
+    flex-direction: column;
+}
+.header-content{
+    margin-left: 10%;
+}
+.table-content{
+    margin-left: 10%;
+    margin-right: 10%;
+}
