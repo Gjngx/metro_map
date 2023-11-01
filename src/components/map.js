@@ -30,7 +30,7 @@ const MapContainer = (props) => {
       setSelectedPlace(selectedTrain);
       setShowingInfoWindow(true);
     } else {
-      console.error(`Train not found for title: ${props.id}`);
+      console.error(` Không tìm thấy ga: ${props.id}`);
     }
   };
 

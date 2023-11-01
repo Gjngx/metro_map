@@ -15,8 +15,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from "react-router-dom"
 
 
-
-const pages = ["Tuyến tàu", "Trạm tàu", "User", "Admin"];
+const pages = ["Tuyến tàu", "User", "Admin"];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 
@@ -60,7 +59,7 @@ function AdminAppBar() {
               textDecoration: 'none',
             }}
           >
-            Metro Map
+            Metro Map|
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

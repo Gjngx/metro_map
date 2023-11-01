@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import TrainLineService from '../services/trainLineService';
+import TrainService from '../services/trainService';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -10,9 +10,6 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import './adminComponents.css'
-import { Link } from "react-router-dom"
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
-import InfoIcon from '@mui/icons-material/Info';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -33,17 +30,17 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     },
   }));
 
-const ListTrainLinesComponent = () => {
-    const [trainLine, setTrainLine] = useState([]);
+const ListTrainComponent = () => {
+    const [trains, setTrains] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
     useEffect(() => {
-        getAllTrainLine();
+        getAllTrain();
       }, []);
     
-      const getAllTrainLine = () => {
-        TrainLineService.getAllTrainLine().then((response) => {
-          setTrainLine(response.data);
+      const getAllTrain = () => {
+        TrainService.getAllTrain().then((response) => {
+          setTrains(response.data);
         }).catch(error => {
           console.log(error);
         });
@@ -58,46 +55,35 @@ const ListTrainLinesComponent = () => {
         setPage(0);
       };
     
-      const slicedTrainLines = trainLine.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
+      const slicedTrains = trains.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
     
       
     
  return (
     <div className="container-admin">
         <div className='header-content'>
-            <h2 className="text-center">Danh sách tuyến tàu</h2>
+            <h2 className="text-center">Danh sách ga</h2>
         </div>
         <div className='table-content'>
         <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 700 }} aria-label="customized table">
                     <TableHead>
                         <TableRow>
-                            <StyledTableCell>Mã tuyến tàu</StyledTableCell>
-                            <StyledTableCell align="right">Số tuyến tàu</StyledTableCell>
-                            <StyledTableCell align="right">Tên tuyến tàu</StyledTableCell>
-                            <StyledTableCell align="right">Khu vực</StyledTableCell>
+                            <StyledTableCell>Mã ga</StyledTableCell>
+                            <StyledTableCell align="right">Tên ga</StyledTableCell>
+                            <StyledTableCell align="right">Địa chỉ</StyledTableCell>
                             <StyledTableCell align="right">Mô tả</StyledTableCell>
-                            <StyledTableCell align="right">Chức năng</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {slicedTrainLines.map((trainLine) => (
-                        <StyledTableRow key={trainLine.id}>
+                    {slicedTrains.map((trains) => (
+                        <StyledTableRow key={trains.id}>
                         <StyledTableCell component="th" scope="row">
-                            {trainLine.id}
+                            {trains.id}
                         </StyledTableCell>
-                        <StyledTableCell align="right">{trainLine.soTuyenTau}</StyledTableCell>
-                        <StyledTableCell align="right">{trainLine.tenTuyenTau}</StyledTableCell>
-                        <StyledTableCell align="right">{trainLine.khuVuc}</StyledTableCell>
-                        <StyledTableCell align="right">{trainLine.moTa}</StyledTableCell>
-                        <StyledTableCell align="right">
-                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {``}>
-                            <InfoIcon/>
-                          </Link>
-                          <Link className="btn btn-success" style={{textDecoration: "none"}} to = {``}>
-                            <FormatListBulletedIcon/>
-                          </Link>
-                        </StyledTableCell>
+                        <StyledTableCell align="right">{trains.tenGa}</StyledTableCell>
+                        <StyledTableCell align="right">{trains.diaChi}</StyledTableCell>
+                        <StyledTableCell align="right">{trains.moTa}</StyledTableCell>
                         </StyledTableRow>
                     ))}
                     </TableBody>
@@ -106,7 +92,7 @@ const ListTrainLinesComponent = () => {
             <TablePagination
                 rowsPerPageOptions={[5, 10, 25]}
                 component="div"
-                count={trainLine.length}
+                count={trains.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}
@@ -116,6 +102,6 @@ const ListTrainLinesComponent = () => {
     </div>
   )
 }
-export default ListTrainLinesComponent
+export default ListTrainComponent
 
 
