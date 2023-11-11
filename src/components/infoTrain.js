@@ -53,12 +53,7 @@ export default function InfoTrain() {
    );
   });
 
-  return (
-    // <div className='info-train'>
-    //     <ButtonStyled> info train 1 </ButtonStyled>
-    // </div>
-    
-    
+  return ( 
     <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 0.5 }}>
     {TrainLine}
     </Box>

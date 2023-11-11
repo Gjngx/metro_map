@@ -11,8 +11,11 @@ import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import './adminComponents.css'
 import { Link } from "react-router-dom"
-import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import TrainIcon from '@mui/icons-material/Train';
 import InfoIcon from '@mui/icons-material/Info';
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -37,6 +40,7 @@ const ListTrainLinesComponent = () => {
     const [trainLine, setTrainLine] = useState([]);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+
     useEffect(() => {
         getAllTrainLine();
       }, []);
@@ -66,6 +70,12 @@ const ListTrainLinesComponent = () => {
     <div className="container-admin">
         <div className='header-content'>
             <h2 className="text-center">Danh sách tuyến tàu</h2>
+            <div className='text-add'>
+              <h3>Thêm mới tuyến tàu</h3>
+              <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/addtrainline'}>
+                <AddCircleIcon/>
+              </Link>
+            </div>
         </div>
         <div className='table-content'>
         <TableContainer component={Paper}>
@@ -77,7 +87,9 @@ const ListTrainLinesComponent = () => {
                             <StyledTableCell align="right">Tên tuyến tàu</StyledTableCell>
                             <StyledTableCell align="right">Khu vực</StyledTableCell>
                             <StyledTableCell align="right">Mô tả</StyledTableCell>
-                            <StyledTableCell align="right">Chức năng</StyledTableCell>
+                            <StyledTableCell align="right">Xem ga</StyledTableCell>
+                            <StyledTableCell align="right">Cập nhật</StyledTableCell>
+                            <StyledTableCell align="right">Chi tiết</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -91,16 +103,23 @@ const ListTrainLinesComponent = () => {
                         <StyledTableCell align="right">{trainLine.khuVuc}</StyledTableCell>
                         <StyledTableCell align="right">{trainLine.moTa}</StyledTableCell>
                         <StyledTableCell align="right">
-                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {``}>
-                            <InfoIcon/>
+                          <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/Tàu/'+trainLine.id}>
+                            <TrainIcon/>
                           </Link>
-                          <Link className="btn btn-success" style={{textDecoration: "none"}} to = {``}>
-                            <FormatListBulletedIcon/>
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/edittrainline/'+trainLine.id}>
+                            <EditIcon/>
+                          </Link>
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/detailtrainline/'+trainLine.id}>
+                            <InfoIcon/>
                           </Link>
                         </StyledTableCell>
                         </StyledTableRow>
                     ))}
-                    </TableBody>
+                    </TableBody>     
                 </Table>
             </TableContainer>
             <TablePagination

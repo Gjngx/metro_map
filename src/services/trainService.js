@@ -5,6 +5,9 @@ class TrainService{
     getAllTrain(){
         return axios.get(TRAIN_BASE_REST_API_URL)
     }
+    getAllTrainByTrainLine(idTrain){
+        return axios.get(TRAIN_BASE_REST_API_URL+'/trainline/'+idTrain)
+    }
 }
 
 // eslint-disable-next-line

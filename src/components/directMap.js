@@ -21,9 +21,6 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function InfoTrain() {
   
   return (
-    // <div className='info-train'>
-    //     <ButtonStyled> info train 1 </ButtonStyled>
-    // </div>
     <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 0.5 }}>
     <Item
       sx={{

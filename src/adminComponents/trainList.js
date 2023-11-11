@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import './adminComponents.css'
+import { useParams } from "react-router-dom"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -32,19 +33,29 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const ListTrainComponent = () => {
     const [trains, setTrains] = useState([]);
+    const [nameTrainLine, setNameTrainLine] = useState();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+    const {id} = useParams();
     useEffect(() => {
-        getAllTrain();
-      }, []);
+      getAllTrainByTrainLine(id);
+    }, [id]);
     
-      const getAllTrain = () => {
-        TrainService.getAllTrain().then((response) => {
-          setTrains(response.data);
-        }).catch(error => {
-          console.log(error);
-        });
-      };
+    const getAllTrainByTrainLine = (id) => {
+      TrainService.getAllTrainByTrainLine(id)
+          .then((response) => {
+              if (Array.isArray(response.data.data)) {
+                  const sortedTrains = response.data.data.sort((a, b) => a.sTTGa - b.sTTGa);
+                  setTrains(sortedTrains);
+                  setNameTrainLine(response.data.message);
+              } else {
+                  console.error(response);
+              }
+          })
+          .catch(error => {
+              console.log(error);
+          });
+  };
     
       const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -62,7 +73,7 @@ const ListTrainComponent = () => {
  return (
     <div className="container-admin">
         <div className='header-content'>
-            <h2 className="text-center">Danh sách ga</h2>
+            <h2 className="text-center">Danh sách ga {nameTrainLine}</h2>
         </div>
         <div className='table-content'>
         <TableContainer component={Paper}>
@@ -70,22 +81,30 @@ const ListTrainComponent = () => {
                     <TableHead>
                         <TableRow>
                             <StyledTableCell>Mã ga</StyledTableCell>
+                            <StyledTableCell align="right">Số thứ ga</StyledTableCell>
                             <StyledTableCell align="right">Tên ga</StyledTableCell>
                             <StyledTableCell align="right">Địa chỉ</StyledTableCell>
                             <StyledTableCell align="right">Mô tả</StyledTableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                    {slicedTrains.map((trains) => (
-                        <StyledTableRow key={trains.id}>
-                        <StyledTableCell component="th" scope="row">
-                            {trains.id}
-                        </StyledTableCell>
-                        <StyledTableCell align="right">{trains.tenGa}</StyledTableCell>
-                        <StyledTableCell align="right">{trains.diaChi}</StyledTableCell>
-                        <StyledTableCell align="right">{trains.moTa}</StyledTableCell>
+                    {Array.isArray(slicedTrains) && slicedTrains.length > 0 ? (
+                    slicedTrains.map((train) => (
+                        <StyledTableRow key={train.id}>
+                            <StyledTableCell component="th" scope="row">
+                                {train.id}
+                            </StyledTableCell>
+                            <StyledTableCell align="right">{train.sTTGa}</StyledTableCell>
+                            <StyledTableCell align="right">{train.tenGa}</StyledTableCell>
+                            <StyledTableCell align="right">{train.diaChi}</StyledTableCell>
+                            <StyledTableCell align="right">{train.moTa}</StyledTableCell>
                         </StyledTableRow>
-                    ))}
+                    ))
+                ) : (
+                    <StyledTableRow>
+                        <StyledTableCell colSpan={4} align="center">Không có dữ liệu hoặc dữ liệu không hợp lệ</StyledTableCell>
+                    </StyledTableRow>
+                )}
                     </TableBody>
                 </Table>
             </TableContainer>
