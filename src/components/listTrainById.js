@@ -23,13 +23,14 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function InfoTrain() {
 
-  const [trainLine, setTrainLine] = useState([]);
+  const [train, setTrain] = useState([]);
+
 
   useEffect(()=>{
     const fetchData = async () =>{
       try {
         const response = await trainLineService.getAllTrainLine();
-        setTrainLine(response.data);
+        setTrain(response.data);
         console.log (response.data);
       } catch (error) {
         console.log(error);
@@ -38,7 +39,7 @@ export default function InfoTrain() {
     fetchData();
   }, []);
 
-  const TrainLine = trainLine.map((trainLineItem)=> {
+  const Train = train.map((trainItem)=> {
    return(
     <Item
       sx={{
@@ -46,12 +47,11 @@ export default function InfoTrain() {
         mx: 'auto',
         p: 2,
       }}
-      key={trainLineItem.id}
+      key={trainItem.id}
     >
-      <Stack spacing={1} direction="row" alignItems="center" justifycontent="space-around">
+      <Stack spacing={1} direction="row" justifyContent="space-around" alignItems="center">
         <Avatar><TramIcon/></Avatar>
-        <Typography noWrap >{trainLineItem.soTuyenTau}</Typography>
-        <Link style={{ textDecoration: 'none' }} to= {"/admin/Tuyến"}><InfoIcon/></Link>
+        <Typography noWrap >{trainItem.soTuyenTau}</Typography>
       </Stack>
     </Item>
    );
@@ -59,7 +59,7 @@ export default function InfoTrain() {
 
   return ( 
     <Box sx={{ flexGrow: 1, overflow: 'hidden', px: 0.5 }}>
-    {TrainLine}
+    {Train}
     </Box>
   )
 }
