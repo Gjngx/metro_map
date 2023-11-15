@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
-import InfoListTrain from './infoListTrain';
+import InfoListTrainLine from './infoListTrainLine';
 import DirectionMap from './directionMap';
 
 
@@ -30,7 +30,7 @@ const handleChange = (event, newValue) => {
             </div>
             <div className='info-container'>
                 <TabPanel value="1"><DirectionMap/></TabPanel>
-                <TabPanel value="2"><InfoListTrain/></TabPanel>
+                <TabPanel value="2"><InfoListTrainLine/></TabPanel>
             </div>
             </TabContext>
         </div>

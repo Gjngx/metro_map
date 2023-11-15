@@ -4,6 +4,8 @@ import TrainLineService from '../services/trainLineService';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 
 function CreateTrainComponent() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [newTrain, setNewTrain] = useState({
     sTTGa: '',
     tenGa: '',
@@ -13,7 +15,7 @@ function CreateTrainComponent() {
     lng: '',
     moTa: '',
     trangThai: '',
-    trainLineId: '',
+    trainLineId: id,
   });
 
   const [errors, setErrors] = useState({
@@ -30,10 +32,6 @@ function CreateTrainComponent() {
   const [trainLine, setTrainLine] = useState({
     nameTrainLine: '',
   });
-
-  const { id } = useParams();
-
-  const navigate = useNavigate();
 
   const saveTrain = (e) => {
     e.preventDefault();
@@ -93,11 +91,10 @@ function CreateTrainComponent() {
   useEffect(() => {
     TrainLineService.getTrainLineById(id).then((response) => {
       setTrainLine({ ...trainLine, nameTrainLine: response.data.data.soTuyenTau })
-      setNewTrain({ ...newTrain, trainLineId: response.data.data.id })
     }).catch(error =>{
       console.log(error)
     })
-  },[id, trainLine, newTrain])
+  },[id, trainLine])
 
   const handleError = (error) => {
     alert('Thêm mới thất bại!');

@@ -1,10 +1,10 @@
 import React from 'react'
 import { TextField, Button } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
-import InfoTrain from './infoTrain';
+import InfoTrainLine from './infoTrainLine';
 import styled from 'styled-components';
 
-export default function InfoListTrain() {
+export default function InfoListTrainLine() {
     const TextFieldStyled = styled(TextField)`
     width: 68%;
     `
@@ -26,7 +26,7 @@ export default function InfoListTrain() {
                     >Tìm</ButtonSearchStyled>
                 </div>
                 <div className='info-list-train'>
-                    <InfoTrain/>
+                    <InfoTrainLine/>
                 </div>
     </div>
   )
