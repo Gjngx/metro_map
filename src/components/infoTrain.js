@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
 import './css/components.css';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -8,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import TramIcon from '@mui/icons-material/Tram';
 import trainLineService from '../services/trainLineService';
+import InfoIcon from '@mui/icons-material/Info';
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -28,6 +30,7 @@ export default function InfoTrain() {
       try {
         const response = await trainLineService.getAllTrainLine();
         setTrainLine(response.data);
+        console.log (response.data);
       } catch (error) {
         console.log(error);
       }
@@ -45,9 +48,10 @@ export default function InfoTrain() {
       }}
       key={trainLineItem.id}
     >
-      <Stack spacing={1} direction="row" alignItems="center">
+      <Stack spacing={1} direction="row" alignItems="center" justifycontent="space-around">
         <Avatar><TramIcon/></Avatar>
         <Typography noWrap >{trainLineItem.soTuyenTau}</Typography>
+        <Link style={{ textDecoration: 'none' }} to= {"/admin/Tuyến"}><InfoIcon/></Link>
       </Stack>
     </Item>
    );
