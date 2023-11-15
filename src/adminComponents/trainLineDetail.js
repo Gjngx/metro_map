@@ -50,7 +50,7 @@ function TrainLineDetail() {
         <p className="label">Giá vé: {trainLine.giaVe ? trainLine.giaVe.toLocaleString('it-IT', { style: 'currency', currency: 'VND' }) : '-'}</p>
         <p className="label">Khu vực: {trainLine.khuVuc}</p>
         <p className="label">Mô tả: {trainLine.moTa}</p>
-        <p className="label">Trạng thái: <span className={trainLine.trangThai ? 'status-active' : 'status-inactive'}>{trainLine.trangThai ? 'Đang hoạt động' : 'Không hoạt động'}</span></p>
+        <p className="label">Trạng thái: <span className={trainLine.trangThai ? 'status-active' : 'status-inactive'}>{trainLine.trangThai ? 'Đang hoạt động' : 'Dừng hoạt động'}</span></p>
       </div>
     ) : (
       <p>Đang tải...</p>

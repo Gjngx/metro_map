@@ -4,10 +4,13 @@ import BodyLeft from './components/bodyLeft';
 import BodyRight from './components/bodyRight';
 import AdminAppBar from './adminComponents/adminAppBar';
 import ListTrainLinesComponent from './adminComponents/trainLineList';
-import ListTrainComponent from './adminComponents/trainList';
 import CreateTrainLineComponent from './adminComponents/createTrainLine';
 import TrainLineDetail from './adminComponents/trainLineDetail';
 import UpdateTrainLineComponent from './adminComponents/updatedTrainLine';
+import ListTrainComponent from './adminComponents/trainList';
+import TrainDetail from './adminComponents/trainDetail';
+import CreateTrainComponent from './adminComponents/createTrain';
+import UpdateTrainComponent from './adminComponents/updatedTrain';
 import './Body.css'
 import './App.css'
 
@@ -35,6 +38,9 @@ function AdminRoutes() {
         <Route path="/addtrainline" element={<CreateTrainLineComponent />} />
         <Route path="/edittrainline/:id" element = {<UpdateTrainLineComponent/>}/>
         <Route path="/Tàu/:id" element={<ListTrainComponent />} />
+        <Route path="/detailtrain/:id" element={<TrainDetail />} />
+        <Route path="/addtrainbyidtrainline/:id" element={<CreateTrainComponent />} />
+        <Route path="/edittrain/:id" element = {<UpdateTrainComponent/>}/>
       </Routes>
     </>
   );

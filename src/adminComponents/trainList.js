@@ -10,7 +10,10 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import TablePagination from '@mui/material/TablePagination';
 import './adminComponents.css'
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import InfoIcon from '@mui/icons-material/Info';
+import EditIcon from '@mui/icons-material/Edit';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -71,53 +74,71 @@ const ListTrainComponent = () => {
       
     
  return (
-    <div className="container-admin">
-        <div className='header-content'>
-            <h2 className="text-center">Danh sách ga {nameTrainLine}</h2>
+  <div className="container-admin">
+    <div className='header-content'>
+        <h2 className="text-center">Danh sách ga thuộc tuyến {nameTrainLine}</h2>
+        <div className='text-add'>
+          <h3>Thêm mới ga tuyến {nameTrainLine}</h3>
+          <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/addtrainbyidtrainline/'+id}>
+            <AddCircleIcon/>
+          </Link>
         </div>
-        <div className='table-content'>
-        <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 700 }} aria-label="customized table">
-                    <TableHead>
-                        <TableRow>
-                            <StyledTableCell>Mã ga</StyledTableCell>
-                            <StyledTableCell align="right">Số thứ ga</StyledTableCell>
-                            <StyledTableCell align="right">Tên ga</StyledTableCell>
-                            <StyledTableCell align="right">Địa chỉ</StyledTableCell>
-                            <StyledTableCell align="right">Mô tả</StyledTableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                    {Array.isArray(slicedTrains) && slicedTrains.length > 0 ? (
-                    slicedTrains.map((train) => (
-                        <StyledTableRow key={train.id}>
-                            <StyledTableCell component="th" scope="row">
-                                {train.id}
-                            </StyledTableCell>
-                            <StyledTableCell align="right">{train.sTTGa}</StyledTableCell>
-                            <StyledTableCell align="right">{train.tenGa}</StyledTableCell>
-                            <StyledTableCell align="right">{train.diaChi}</StyledTableCell>
-                            <StyledTableCell align="right">{train.moTa}</StyledTableCell>
-                        </StyledTableRow>
-                    ))
-                ) : (
-                    <StyledTableRow>
-                        <StyledTableCell colSpan={4} align="center">Không có dữ liệu hoặc dữ liệu không hợp lệ</StyledTableCell>
-                    </StyledTableRow>
-                )}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[5, 10, 25]}
-                component="div"
-                count={trains.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                />
-        </div>
+    </div>
+      <div className='table-content'>
+      <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                  <TableHead>
+                      <TableRow>
+                          <StyledTableCell>Mã ga</StyledTableCell>
+                          <StyledTableCell align="right">Số thứ ga</StyledTableCell>
+                          <StyledTableCell align="right">Tên ga</StyledTableCell>
+                          <StyledTableCell align="right">Địa chỉ</StyledTableCell>
+                          <StyledTableCell align="right">Mô tả</StyledTableCell>
+                          <StyledTableCell align="right">Cập nhật</StyledTableCell>
+                          <StyledTableCell align="right">Chi tiết</StyledTableCell>
+                      </TableRow>
+                  </TableHead>
+                  <TableBody>
+                  {Array.isArray(slicedTrains) && slicedTrains.length > 0 ? (
+                  slicedTrains.map((train) => (
+                      <StyledTableRow key={train.id}>
+                        <StyledTableCell component="th" scope="row">
+                            {train.id}
+                        </StyledTableCell>
+                        <StyledTableCell align="right">{train.sTTGa}</StyledTableCell>
+                        <StyledTableCell align="right">{train.tenGa}</StyledTableCell>
+                        <StyledTableCell align="right">{train.diaChi}</StyledTableCell>
+                        <StyledTableCell align="right">{train.moTa}</StyledTableCell>
+                        <StyledTableCell align="right">
+                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/edittrain/'+train.id}>
+                            <EditIcon/>
+                          </Link>
+                        </StyledTableCell>
+                        <StyledTableCell align="right">
+                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/detailtrain/'+train.id}>
+                            <InfoIcon/>
+                          </Link>
+                        </StyledTableCell>
+                      </StyledTableRow>
+                  ))
+              ) : (
+                  <StyledTableRow>
+                      <StyledTableCell colSpan={4} align="center">Không có dữ liệu hoặc dữ liệu không hợp lệ</StyledTableCell>
+                  </StyledTableRow>
+              )}
+                  </TableBody>
+              </Table>
+          </TableContainer>
+          <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={trains.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+      </div>
     </div>
   )
 }

@@ -31,7 +31,7 @@ function CreateTrainLineComponent() {
   };
 
   const handleError = (error) => {
-    alert('Tên tuyến tàu đã tồn tại!');
+    alert('Thêm mới thất bại!');
     console.log(error);
   };
 
@@ -82,13 +82,8 @@ function CreateTrainLineComponent() {
                     type="text"
                     name="thoiGianBatDau"
                     value={newTrainLine.thoiGianBatDau}
-                    onChange={(e) => {
-                      const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
-                      if (regex.test(e.target.value) || e.target.value === '') {
-                        setNewTrainLine({ ...newTrainLine, thoiGianBatDau: e.target.value });
-                      }
-                    }}
-                  />
+                    onChange={(e) => setNewTrainLine({ ...newTrainLine, thoiGianBatDau: e.target.value })}
+                      />
                 </div>
 
                 <div className="form-group mb-2">
@@ -97,12 +92,7 @@ function CreateTrainLineComponent() {
                     type="text"
                     name="thoiGianKetThuc"
                     value={newTrainLine.thoiGianKetThuc}
-                    onChange={(e) => {
-                      const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
-                      if (regex.test(e.target.value) || e.target.value === '') {
-                        setNewTrainLine({ ...newTrainLine, thoiGianBatDau: e.target.value });
-                      }
-                    }}
+                    onChange={(e) => setNewTrainLine({ ...newTrainLine, thoiGianKetThuc: e.target.value })}
                   />
                 </div>
                 <div className="form-group mb-2">

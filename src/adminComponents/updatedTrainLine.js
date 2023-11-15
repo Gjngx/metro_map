@@ -41,7 +41,7 @@ function UpdateTrainLineComponent() {
   },[id])
 
   const handleError = (error) => {
-    alert('Có lỗi xảy ra!');
+    alert('Cập nhật thất bại!');
     console.log(error);
   };
 
@@ -92,12 +92,7 @@ function UpdateTrainLineComponent() {
                     type="text"
                     name="thoiGianBatDau"
                     value={updatedTrainLine.thoiGianBatDau}
-                    onChange={(e) => {
-                      const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
-                      if (regex.test(e.target.value) || e.target.value === '') {
-                        setUpdatedTrainLine({ ...updatedTrainLine, thoiGianBatDau: e.target.value });
-                      }
-                    }}
+                    onChange={(e) => setUpdatedTrainLine({ ...updatedTrainLine, thoiGianBatDau: e.target.value })}
                   />
                 </div>
 
@@ -107,12 +102,7 @@ function UpdateTrainLineComponent() {
                     type="text"
                     name="thoiGianKetThuc"
                     value={updatedTrainLine.thoiGianKetThuc}
-                    onChange={(e) => {
-                      const regex = /^([01]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
-                      if (regex.test(e.target.value) || e.target.value === '') {
-                        setUpdatedTrainLine({ ...updatedTrainLine, thoiGianBatDau: e.target.value });
-                      }
-                    }}
+                    onChange={(e) =>setUpdatedTrainLine({ ...updatedTrainLine, thoiGianKetThuc: e.target.value })}
                   />
                 </div>
 
