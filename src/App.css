@@ -48,3 +48,28 @@
 .verticalLine {
   border-left: thick solid #ff0000;
 }
+.bodyLeft {
+  overflow-y: auto; 
+}
+.bodyLeft {
+  border: 1px solid #ccc;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+}
+.jzsJXq {
+  display: flex;
+}
+.info-list-train a {
+  text-decoration: none;
+  color: #007bff; /* Màu chữ mặc định */
+}
+
+.info-list-train a:hover {
+  color: #0056b3; /* Màu chữ khi di chuột qua */
+}
+.button-exit{
+  margin: 5%;
+}

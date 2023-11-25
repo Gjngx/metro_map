@@ -18,7 +18,6 @@ export default function InfoListTrainLine() {
                     id="outlined-basic" 
                     label="Tìm tuyến tàu điện"  
                     size="small" 
-                    
                     ></TextFieldStyled>
                     <ButtonSearchStyled size="small" 
                     variant="contained" 

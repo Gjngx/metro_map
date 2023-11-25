@@ -67,9 +67,9 @@ const MapContainer = (props) => {
     <div>
       <Map
         google={props.google}
-        zoom={12}
+        zoom={13}
         style={mapStyles}
-        initialCenter={train.length > 0 ? train[0].coordinates : { lat: 21.0146109, lng: 105.8194616 }}
+        initialCenter={train.length > 0 ? train[0].coordinates : { lat: 20.988970479563708, lng: 105.79468455397605 }}
       >
         {markers}
         <InfoWindow

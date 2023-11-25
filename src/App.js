@@ -11,6 +11,7 @@ import ListTrainComponent from './adminComponents/trainList';
 import TrainDetail from './adminComponents/trainDetail';
 import CreateTrainComponent from './adminComponents/createTrain';
 import UpdateTrainComponent from './adminComponents/updatedTrain';
+import BodyLeftInfoTrain from './components/bodyLeftInfoTrain';
 import './Body.css'
 import './App.css'
 
@@ -20,7 +21,7 @@ function App() {
       <div className='metro-map'>
         <Routes>
           <Route path="/admin/*" element={<AdminRoutes />} />
-          <Route path="*" element={<CommonContent />} />
+          <Route path="*" element={<UserContent />} />
         </Routes>
       </div>
     </Router>
@@ -55,11 +56,30 @@ function AdminDashboard() {
 function CommonContent() {
   return (
     <>
+      <BodyLeft />
+      <BodyRight />
+    </>
+  );
+}
+function InfoTrainContent() {
+  return (
+    <>
+      <BodyLeftInfoTrain />
+      <BodyRight />
+    </>
+  );
+}
+
+function UserContent() {
+  return (
+    <>
       <ResponsiveAppBar />
       <div className='body'>
         <div className='container-user'>
-          <BodyLeft />
-          <BodyRight />
+          <Routes>
+            <Route path="*" element={<CommonContent />} />
+            <Route path="/listtrain/:id" element={<InfoTrainContent />} />
+          </Routes>
         </div>
       </div>
     </>

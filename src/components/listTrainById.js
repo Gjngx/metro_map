@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import './css/components.css';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -8,7 +9,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import TramIcon from '@mui/icons-material/Tram';
-import trainLineService from '../services/trainLineService';
+import trainService from '../services/trainService';
 import InfoIcon from '@mui/icons-material/Info';
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -24,20 +25,20 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function InfoTrain() {
 
   const [train, setTrain] = useState([]);
-
+  const { id } = useParams();
 
   useEffect(()=>{
     const fetchData = async () =>{
       try {
-        const response = await trainLineService.getAllTrainLine();
-        setTrain(response.data);
-        console.log (response.data);
+        const response = await trainService.getAllTrainByTrainLine(id);
+        setTrain(response.data.data);
+        console.log (response.data.data);
       } catch (error) {
         console.log(error);
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
 
   const Train = train.map((trainItem)=> {
    return(
@@ -51,7 +52,8 @@ export default function InfoTrain() {
     >
       <Stack spacing={1} direction="row" justifyContent="space-around" alignItems="center">
         <Avatar><TramIcon/></Avatar>
-        <Typography noWrap >{trainItem.soTuyenTau}</Typography>
+        <Typography noWrap >{trainItem.tenGa}</Typography>
+        <Link style={{ textDecoration: 'none' }} to= {"/"}><InfoIcon/></Link>
       </Stack>
     </Item>
    );
