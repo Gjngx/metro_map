@@ -12,8 +12,9 @@ import TrainDetail from './adminComponents/trainDetail';
 import CreateTrainComponent from './adminComponents/createTrain';
 import UpdateTrainComponent from './adminComponents/updatedTrain';
 import BodyLeftInfoTrain from './components/bodyLeftInfoTrain';
-import './Body.css'
-import './App.css'
+import BodyRightInfoTrain from './components/bodyRightInfoTrain';
+import './Body.css';
+import './App.css';
 
 function App() {
   return (
@@ -65,10 +66,11 @@ function InfoTrainContent() {
   return (
     <>
       <BodyLeftInfoTrain />
-      <BodyRight />
+      <BodyRightInfoTrain />
     </>
   );
 }
+
 
 function UserContent() {
   return (
