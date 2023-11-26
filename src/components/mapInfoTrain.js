@@ -22,7 +22,7 @@ const MapContaineInfoTrain = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
 
   const onMarkerClick = (props, marker, e) => {
     const selectedTrain = train.find(item => item.id === props.id);
