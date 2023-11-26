@@ -13,8 +13,10 @@ import CreateTrainComponent from './adminComponents/createTrain';
 import UpdateTrainComponent from './adminComponents/updatedTrain';
 import BodyLeftInfoTrain from './components/bodyLeftInfoTrain';
 import BodyRightInfoTrain from './components/bodyRightInfoTrain';
+import BodyLeftInfoDetailTrain from './components/bodyLeftInfoDetailTrain';
 import './Body.css';
 import './App.css';
+
 
 function App() {
   return (
@@ -71,6 +73,14 @@ function InfoTrainContent() {
   );
 }
 
+function InfoDetailTrainContent() {
+  return (
+    <>
+      <BodyLeftInfoDetailTrain />
+      <BodyRight />
+    </>
+  );
+}
 
 function UserContent() {
   return (
@@ -81,6 +91,7 @@ function UserContent() {
           <Routes>
             <Route path="*" element={<CommonContent />} />
             <Route path="/listtrain/:id" element={<InfoTrainContent />} />
+            <Route path="/detailtrain/:id" element={<InfoDetailTrainContent />} />
           </Routes>
         </div>
       </div>

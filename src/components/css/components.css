@@ -21,6 +21,11 @@
 .header-title{
     margin: 5px;
 }
+.detail-info{
+  padding-top: 0%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
 
 /* CSS */
 .places-autocomplete-container {

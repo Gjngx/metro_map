@@ -53,7 +53,7 @@ export default function InfoTrain() {
       <Stack spacing={1} direction="row" justifyContent="space-around" alignItems="center">
         <Avatar><TramIcon/></Avatar>
         <Typography noWrap >{trainItem.tenGa}</Typography>
-        <Link style={{ textDecoration: 'none' }} to= {"/"}><InfoIcon/></Link>
+        <Link style={{ textDecoration: 'none' }} to= {"/detailtrain/"+trainItem.id}><InfoIcon/></Link>
       </Stack>
     </Item>
    );
