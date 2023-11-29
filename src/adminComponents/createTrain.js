@@ -3,7 +3,7 @@ import TrainService from '../services/trainService';
 import TrainLineService from '../services/trainLineService';
 import { useNavigate, Link, useParams } from 'react-router-dom';
 
-function CreateTrainComponent() {
+function CreateUserComponent() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [newTrain, setNewTrain] = useState({
@@ -107,7 +107,7 @@ function CreateTrainComponent() {
       <div className="container-addtrainline">
         <div className="row">
           <div className="card col-md-6 offset-md-3">
-            <h2 className="text-center">Thêm ga thuộc tuyến {trainLine.nameTrainLine}</h2>
+            <h2 className="text-center padding5">Thêm ga thuộc tuyến {trainLine.nameTrainLine}</h2>
             <div className="card-body">
               <form method='POST'>
                 <div className="form-group mb-2">
@@ -218,10 +218,10 @@ function CreateTrainComponent() {
                     <option value="false">Dừng hoạt động</option>
                   </select>
                 </div>
-                <button className="btn-addtrainline btn-success float-right margin-2" onClick={saveTrain}>
+                <button className="btn margin2 btn-success float-right margin-2" onClick={saveTrain}>
                   Lưu
                 </button>
-                <Link style={{ textDecoration: 'none' }} to={"/admin/Tàu/"+id} className="btn-addtrainline btn-danger float-right margin-2">
+                <Link style={{ textDecoration: 'none' }} to={"/admin/Tàu/"+id} className="btn btn-danger float-right margin-2">
                   Hủy
                 </Link>
               </form>
@@ -233,4 +233,4 @@ function CreateTrainComponent() {
   );
 }
 
-export default CreateTrainComponent;
+export default CreateUserComponent;

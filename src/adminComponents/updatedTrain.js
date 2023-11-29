@@ -104,7 +104,7 @@ function UpdateTrainComponent() {
       <div className="container-addtrainline">
         <div className="row">
           <div className="card col-md-6 offset-md-3">
-            <h2 className="text-center">Cập nhật ga {updateTrain.soTuyenTau}</h2>
+            <h2 className="text-center padding5">Cập nhật ga {updateTrain.soTuyenTau}</h2>
             <div className="card-body">
             <form method='PUT'>
             <div className="form-group mb-2">
@@ -217,7 +217,7 @@ function UpdateTrainComponent() {
                 </div>
 
                 <button
-                  className="btn-addtrainline btn-success float-right margin-2"
+                  className="btn margin2 btn-success float-right margin-2"
                   onClick={updateTrain}
                 >
                   Cập nhật
@@ -225,7 +225,7 @@ function UpdateTrainComponent() {
                 <Link
                   style={{ textDecoration: 'none' }}
                   to={"/admin/Tàu/"+updatedTrain.idTuyenTau}
-                  className="btn-addtrainline btn-danger float-right margin-2"
+                  className="btn btn-danger float-right margin-2"
                 >
                   Hủy
                 </Link>

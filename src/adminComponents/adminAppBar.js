@@ -15,8 +15,8 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import { Link } from "react-router-dom"
 
 
-const pages = ["Tuyến tàu", "User", "Admin"];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ["Tuyến tàu", "Admin"];
+const settings = ['Profile', 'Logout'];
 
 
 function AdminAppBar() {

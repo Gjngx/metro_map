@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import ResponsiveAppBar from './components/appBar';
 import BodyLeft from './components/bodyLeft';
 import BodyRight from './components/bodyRight';
@@ -15,17 +16,27 @@ import BodyLeftInfoTrain from './components/bodyLeftInfoTrain';
 import BodyRightInfoTrain from './components/bodyRightInfoTrain';
 import BodyLeftInfoDetailTrain from './components/bodyLeftInfoDetailTrain';
 import BodyRightInfoDetailTrain from './components/bodyRightInfoDetailTrain';
-
+import Login from './adminComponents/login';
+import ListAdminComponent from './adminComponents/adminList';
+import CreateUserComponent from './adminComponents/createAdmin';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Body.css';
 import './App.css';
 
-
 function App() {
+  const isAuthenticated = () => {
+      return !!localStorage.getItem('accessToken');
+  };
+
   return (
     <Router>
       <div className='metro-map'>
         <Routes>
-          <Route path="/admin/*" element={<AdminRoutes />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin/*"
+            element={
+              isAuthenticated() ? <AdminRoutes /> : <Navigate to="/login" />
+            } />
           <Route path="*" element={<UserContent />} />
         </Routes>
       </div>
@@ -47,6 +58,8 @@ function AdminRoutes() {
         <Route path="/detailtrain/:id" element={<TrainDetail />} />
         <Route path="/addtrainbyidtrainline/:id" element={<CreateTrainComponent />} />
         <Route path="/edittrain/:id" element = {<UpdateTrainComponent/>}/>
+        <Route path="/Admin" element={<ListAdminComponent />} />
+        <Route path="/createadmin" element={<CreateUserComponent />} />
       </Routes>
     </>
   );

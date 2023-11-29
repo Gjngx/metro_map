@@ -100,7 +100,7 @@ function CreateTrainLineComponent() {
       <div className="container-addtrainline">
         <div className="row">
           <div className="card col-md-6 offset-md-3">
-            <h2 className="text-center">Thêm tuyến tàu</h2>
+            <h2 className="text-center padding5">Thêm tuyến tàu</h2>
             <div className="card-body">
               <form method='POST'>
 
@@ -229,10 +229,10 @@ function CreateTrainLineComponent() {
                   </select>
                 </div>
 
-                <button className="btn-addtrainline btn-success float-right margin-2" onClick={saveTrainLine}>
+                <button className="btn margin2 btn-success float-right margin-2" onClick={saveTrainLine}>
                   Lưu
                 </button>
-                <Link style={{ textDecoration: 'none' }} to="/admin/Tuyến tàu" className="btn-addtrainline btn-danger float-right margin-2">
+                <Link style={{ textDecoration: 'none' }} to="/admin/Tuyến tàu" className="btn btn-danger float-right margin-2">
                   Hủy
                 </Link>
 

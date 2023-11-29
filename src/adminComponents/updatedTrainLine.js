@@ -51,7 +51,7 @@ function UpdateTrainLineComponent() {
       <div className="container-addtrainline">
         <div className="row">
           <div className="card col-md-6 offset-md-3">
-            <h2 className="text-center">Cập nhật tuyến tàu {updateTrainLine.soTuyenTau}</h2>
+            <h2 className="text-center padding5">Cập nhật tuyến tàu {updateTrainLine.soTuyenTau}</h2>
             <div className="card-body">
               <form method="PUT">
 
@@ -149,7 +149,7 @@ function UpdateTrainLineComponent() {
                 </div>
 
                 <button
-                  className="btn-addtrainline btn-success float-right margin-2"
+                  className="btn margin2 btn-success float-right margin-2"
                   onClick={updateTrainLine}
                 >
                   Cập nhật
@@ -157,7 +157,7 @@ function UpdateTrainLineComponent() {
                 <Link
                   style={{ textDecoration: 'none' }}
                   to="/admin/Tuyến tàu"
-                  className="btn-addtrainline btn-danger float-right margin-2"
+                  className="btn btn-danger float-right margin-2"
                 >
                   Hủy
                 </Link>

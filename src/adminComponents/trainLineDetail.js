@@ -55,10 +55,10 @@ function TrainLineDetail() {
     ) : (
       <p>Đang tải...</p>
     )}
-    <button className="btn-addtrainline btn-success float-right margin-2" onClick={deleteTrainLine}>
+    <button className="btn margin2 btn-success float-right margin-2" onClick={deleteTrainLine}>
       Xóa tuyến tàu
     </button>
-    <Link style={{ textDecoration: 'none' }} to="/admin/Tuyến tàu" className="btn-addtrainline btn-danger float-right margin-2">
+    <Link style={{ textDecoration: 'none' }} to="/admin/Tuyến tàu" className="btn btn-danger float-right margin-2">
       Hủy
     </Link>
   </div>
