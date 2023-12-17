@@ -5,8 +5,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import InfoListTrainLine from './infoListTrainLine';
-//import DirectionMap from './directionMap';
-import DirectionMapTest from './directMap';
+import DirectionMap from './directionMap';
+// import DirectionMapTest from './directMap';
 
 
 export default function BodyLeft() {
@@ -31,7 +31,7 @@ export default function BodyLeft() {
                     </div>
                     <div className='info-container'>
                         {/* <TabPanel value="1"><DirectionMap/></TabPanel> */}
-                        <TabPanel value="1"><DirectionMapTest /></TabPanel>
+                        <TabPanel value="1"><DirectionMap /></TabPanel>
 
                         <TabPanel value="2"><InfoListTrainLine /></TabPanel>
                     </div>
