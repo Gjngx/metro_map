@@ -105,7 +105,7 @@ const ListAdminComponent = () => {
                             )}
                         </StyledTableCell>
                         <StyledTableCell align="right">
-                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'/admin/edittrain/'+user.id}>
+                        <Link className="btn btn-success" style={{textDecoration: "none"}} to = {'#'}>
                             <EditIcon/>
                           </Link>
                         </StyledTableCell>

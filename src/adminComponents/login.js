@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function Login() {
-  const navigate = useNavigate(); 
   const [user, setUser] = useState({
     username: "",
     password: ""
@@ -36,7 +34,7 @@ function Login() {
         const result = await response.json();
         localStorage.setItem("accessToken", result.accessToken);
         localStorage.setItem("roles", result.roles);
-        navigate('/admin');
+        window.location.href = '/admin';
       } else {
         throw Error(response.status);
       }

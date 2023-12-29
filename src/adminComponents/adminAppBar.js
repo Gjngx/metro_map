@@ -35,12 +35,18 @@ function AdminAppBar() {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (item) => {
     setAnchorElUser(null);
+
+    if (item === 'Logout') {
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('roles');
+      window.location.href = '/login';
+    }
   };
 
   return (
-    <AppBar position="static" style={{backgroundColor: "black"}}>
+    <AppBar position="static" style={{ backgroundColor: "black" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AutoStoriesIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -63,7 +69,7 @@ function AdminAppBar() {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-          <IconButton
+            <IconButton
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
@@ -94,11 +100,11 @@ function AdminAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
-                    <Link 
-                    style={{textDecoration: "none", color: "blue"}}
-                    to = {`${page}`}>
+                    <Link
+                      style={{ textDecoration: "none", color: "blue" }}
+                      to={`${page}`}>
                       {page}
-                    </Link>  
+                    </Link>
                   </Typography>
                 </MenuItem>
               ))}
@@ -130,11 +136,11 @@ function AdminAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link 
-                  style={{textDecoration: "none", color: "white"}}
-                  to = {`${page}`}>
-                    {page}
-                </Link>  
+                <Link
+                  style={{ textDecoration: "none", color: "white" }}
+                  to={`${page}`}>
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -162,7 +168,7 @@ function AdminAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                <MenuItem key={setting} onClick={() => handleCloseUserMenu(setting)}>
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
